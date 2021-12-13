@@ -4,7 +4,7 @@
   "description": "Learn JavaScript",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HyagoMV/LearnJs/issues"
   },
-  "homepage": "https://github.com/HyagoMV/LearnJs#readme"
+  "homepage": "https://github.com/HyagoMV/LearnJs#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
 }
