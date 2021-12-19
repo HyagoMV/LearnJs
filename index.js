@@ -1,30 +1,26 @@
-function foo(arg) {
-    return new Promise((resolve, reject) => arg ? resolve("OK") : reject("Not OK"));
+function bar(fail) {
+    return new Promise((resolve, reject) => {
+        if (!fail)
+            resolve("OK")
+        else
+            reject("Fail")
+    });
 }
 
+bar(true)
+    .then(data=>console.log("T: " + data))
+    .catch(data=>console.log("C: " + data))
 
-// -------------------------------
+// ======================
 
-function bar(arg) {
-     foo(arg)
-        .then(resolve => console.log(resolve))
-        .catch(reject => console.log(reject)); 
+async function foo(fail) {
+    if (!fail)
+        return "Ok"
+    else
+        throw "Fail"
 }
 
-async function tar(arg) {
-    try {
-        const resolve = await foo(arg);
-        console.log(resolve);
-    } catch(reject) {
-        console.log(reject);
-    }   
-}
+foo(!true)
+    .then(data=>console.log("T: " + data))
+    .catch(data=>console.log("C: " + data))
 
-
-foo(true)
-    .then(resolve => console.log(resolve))
-    .catch(reject => console.log(reject));
-
-bar(true);
-
-tar(true);
